@@ -1,0 +1,239 @@
+/* =========================
+   PAGE LAYOUT
+========================= */
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  font-family: Inter, system-ui, sans-serif;
+  top: 0%;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+.login-container {
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.login-logo {
+  width: 80px;
+  margin-bottom: 2.5rem;
+}
+
+.login-header {
+  margin-bottom: 2rem;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111827;
+}
+
+.login-subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* =========================
+   FORM
+========================= */
+.login-form {
+  max-width: 380px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  background: #ffffff;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #ff8800;
+}
+
+.login-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-password {
+  font-size: 0.8rem;
+  color: #ff8800;
+  text-decoration: none;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* =========================
+   SOCIAL LOGIN
+========================= */
+.social-login {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.social-button {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+.login-button {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 12px;
+  background: #ff8800;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+}
+
+.login-button:hover {
+  opacity: 0.95;
+}
+
+/* =========================
+   FOOTER TEXT
+========================= */
+.signup-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.signup-link {
+  color: #ff8800;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================
+   RIGHT SIDE IMAGE
+========================= */
+.login-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #ff9a33;
+  padding-right: 3rem;
+
+  height: 100%;
+  width: 100%   
+  
+  ;
+}
+
+.login-image-container2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;        /* ⬅️ background stops 15px before text */
+  padding-right: 0.1rem;
+  padding-top: 3rem;
+  padding-bottom: 0.1rem;
+  margin: auto;
+
+  background: linear-gradient(135deg, #ffb15c, #ff8a00);
+  border-radius: 18px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.login-image-container2 img {
+  width: 380px;
+  max-width: 100%;
+  z-index: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 2.5rem;
+  left: 15px; /* matches background padding */
+  z-index: 2;
+  color: #ffffff;
+}
+
+.image-overlay h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0rem;
+}
+/* 
+
+.login-image-container img {
+  width: 80%;
+  max-width: 420px;
+  z-index: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.image-overlay h2 {
+  font-size: 2.0rem;
+  font-weight: 700;
+  /* max-width: 260px; */
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-image-container {
+    display: none;
+  }
+}

@@ -1,3 +1,4 @@
+import Login from './(auth)/login'
 import './App.css'
 import OrderManagement from './components/order-management'
 
@@ -5,7 +6,9 @@ function App() {
 
   return (
     <>
-      <OrderManagement />
+      {/* <OrderManagement /> */}
+
+      <Login />
     </>
   )
 }
