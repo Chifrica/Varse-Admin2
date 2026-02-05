@@ -1,0 +1,373 @@
+/* PAGE WRAPPER */
+.order-management {
+  padding: 2rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.page-header__left h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+.page-header__left p {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.page-header__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--primary {
+  background-color: #ff8800;
+  color: #ffffff;
+}
+
+.btn--secondary {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.btn--full {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* =========================
+   FILTERS
+========================= */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filters__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.filter-btn {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.filter-btn strong {
+  font-weight: 600;
+  color: #ff8800;
+}
+
+.filter-btn--advanced {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* =========================
+   MAIN CONTENT GRID
+========================= */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+}
+
+/* =========================
+   BULK ACTION BAR
+========================= */
+.bulk-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111827;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.bulk-actions__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badge {
+  background-color: #ff8800;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.divider-vertical {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.link-btn--danger {
+  color: #f87171;
+}
+
+/* =========================
+   TABLE
+========================= */
+.table-wrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  overflow-x: auto;
+  position: relative;
+  overflow: hidden;
+
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* FOOTER */
+
+.table-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* PAGINATION */
+.pagination-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.pagination-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  color: #111827;
+}
+
+.pagination-btn:hover {
+  background: #f3f4f6;
+}
+
+/* .pagination-btn.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+} */
+
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table thead {
+  background-color: #f9fafb;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 0.85rem;
+  text-align: left;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.orders-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.text-danger {
+  color: #ef4444;
+}
+
+/* =========================
+   STATUS PILLS
+========================= */
+.status {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status--pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* =========================
+   RIGHT PANEL (LIFECYCLE)
+========================= */
+.content__right {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.lifecycle-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.lifecycle-header p {
+  margin-top: 0rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ff8800
+}
+
+.lifecycle {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lifecycle-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid #e5e7eb;
+}
+
+.lifecycle-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.lifecycle-item p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.lifecycle-item.completed {
+  border-color: #10b981;
+}
+
+.lifecycle-item.active {
+  border-color: #ff8800;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.time.pending {
+  color: #f59e0b;
+}
+
+/* =========================
+   RIDER CARD
+========================= */
+.rider-card {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rider-card strong {
+  font-size: 0.85rem;
+}
+
+.rider-card span {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .content__right {
+    margin-top: 1rem;
+  }
+}
