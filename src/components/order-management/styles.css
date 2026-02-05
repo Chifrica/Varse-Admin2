@@ -3,6 +3,7 @@
   padding: 2rem;
   background-color: #f9fafb;
   min-height: 100vh;
+  font-weight: 500;
 }
 
 /* =========================
@@ -290,6 +291,12 @@
   color: #ff8800
 }
 
+.lifecycle-divider {
+  height: 1.5px;
+  background-color: #e5e7eb;
+  margin: 0.75rem 0 1rem;
+}
+
 .lifecycle {
   margin-top: 1rem;
   display: flex;
@@ -298,11 +305,37 @@
 }
 
 .lifecycle-item {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between;
   gap: 0.75rem;
-  padding-left: 0.75rem;
-  border-left: 2px solid #e5e7eb;
+  padding-left: 0.75rem; */
+   /* border-left: 2px solid #e5e7eb;  */
+
+  display: grid;
+  grid-template-columns: 15px 1fr auto;
+  column-gap: 12px;
+  position: relative;
+}
+
+.lifecycle-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1rem;
+  z-index: 2;
+  top: 5px;
+}
+
+.lifecycle-marker::after {
+  content: "";
+  position: absolute;
+  top: 20px;           /* starts just below the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(70% + 0px);
+  background-color: #e5e7eb;
 }
 
 .lifecycle-item h4 {
@@ -318,13 +351,23 @@
   font-weight: 500;
 }
 
-.lifecycle-item.completed {
-  border-color: #10b981;
+.lifecycle-item.completed .lifecycle-marker {
+  color: #10b981;
 }
 
-.lifecycle-item.active {
-  border-color: #ff8800;
+.lifecycle-item.completed .lifecycle-marker::after {
+  background-color: #10b981;
 }
+
+.lifecycle-item.active .lifecycle-marker {
+  color: #ff8800;
+  height: calc(115% + 0px);
+}
+
+.lifecycle-item.active .lifecycle-marker::after {
+  background-color: #ff8800;
+}
+
 
 .time {
   font-size: 0.75rem;

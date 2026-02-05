@@ -149,14 +149,14 @@ const OrderManagement = () => {
                                                 onChange={toggleAll}
                                             />
                                         </th>
-                                        <th>Order ID</th>
-                                        <th>Buyer Name</th>
-                                        <th>Vendor</th>
-                                        <th>Rider</th>
-                                        <th>Order Type</th>
-                                        <th>Status</th>
-                                        <th>Payment</th>
-                                        <th>Total</th>
+                                        <th style={{fontWeight: '800'}}>Order ID</th>
+                                        <th style={{fontWeight: '800'}}>Buyer Name</th>
+                                        <th style={{fontWeight: '800'}}>Vendor</th>
+                                        <th style={{fontWeight: '800'}}>Rider</th>
+                                        <th style={{fontWeight: '800'}}>Order Type</th>
+                                        <th style={{fontWeight: '800'}}>Status</th>
+                                        <th style={{fontWeight: '800'}}>Payment</th>
+                                        <th style={{fontWeight: '800'}}>Total</th>
                                     </tr>
                                 </thead>
 
@@ -247,10 +247,14 @@ const OrderManagement = () => {
                             <p>#VR-9021 – Alex Johnson</p>
                         </header>
 
+                        <div className="lifecycle-divider" />
+
                         <div className="lifecycle">
                             <div className="lifecycle-item completed">
                                 {/* check icon */}
-                                <FontAwesomeIcon icon={faCheckCircle} />
+                                <div className="lifecycle-marker">
+                                    <FontAwesomeIcon icon={faCheckCircle} />
+                                </div>
                                 <div>
                                     <h4>Order Placed</h4>
                                     <p>Customer successfully checked out through the app.</p>
@@ -260,7 +264,10 @@ const OrderManagement = () => {
 
                             <div className="lifecycle-item completed">
                                 {/* check icon */}
-                                <FontAwesomeIcon icon={faCheckCircle} />
+
+                                <div className="lifecycle-marker">
+                                    <FontAwesomeIcon icon={faCheckCircle} />
+                                </div>
                                 <div>
                                     <h4>Prepared by Vendor</h4>
                                     <p>Burger King confirmed the order and marked it ready.</p>
@@ -270,9 +277,11 @@ const OrderManagement = () => {
 
                             <div className="lifecycle-item active">
                                 {/* bike icon */}
-                                <FontAwesomeIcon icon={faBicycle} />
+                                <div className="lifecycle-marker">
+                                    <FontAwesomeIcon icon={faBicycle} />
+                                </div>
                                 <div>
-                                    <h4>Picked up by Rider</h4>
+                                    <h4 style={{color: '#ff8800'}}>Picked up by Rider</h4>
                                     <p>Sam Rite has collected the package and is in transit.</p>
 
                                     <div className="rider-card">
@@ -291,7 +300,9 @@ const OrderManagement = () => {
 
                             <div className="lifecycle-item">
                                 {/* home icon */}
-                                <FontAwesomeIcon icon={faHome} />
+                                <div className="lifecycle-marker">
+                                    <FontAwesomeIcon icon={faHome} />
+                                </div>
                                 <div>
                                     <h4>Delivered</h4>
                                     <p>Waiting for arrival at Alex Johnson's location.</p>
@@ -300,8 +311,8 @@ const OrderManagement = () => {
                             </div>
                         </div>
 
-                        <button className="btn btn--primary btn--full">
-                            Assign New Rider
+                        <button className="btn btn--primary btn--full" style={{paddingTop:'0px', paddingBottom:'0px', paddingRight:'0px', paddingLeft: '30%' }}>
+                           <p style={{textAlign: 'center', }}>Assign New Rider </p>
                         </button>
                     </aside>
                 </section>
