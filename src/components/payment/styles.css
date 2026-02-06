@@ -72,10 +72,32 @@ body {
   color: var(--primary);
 }
 
+/* Update your .sidebar and .sidebar-footer classes */
+
+.sidebar {
+    width: 240px;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    /* Ensure the sidebar itself doesn't scroll, but its content can if needed */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar nav {
+    flex: 1; /* This pushes the footer down by taking up all available space */
+    overflow-y: auto; /* Allows the menu to scroll if there are too many items */
+}
+
 .sidebar-footer {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 30%;
+    font-size: 14px;
+    color: var(--muted);
+    padding: 20px 0;
+    border-top: 1px solid var(--border); /* Optional: adds separation */
+    margin-top: auto; /* Final insurance to stay at the bottom */
 }
 
 /* Main */

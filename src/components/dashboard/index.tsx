@@ -95,9 +95,83 @@ const Dashboard = () => {
                     <Stat title="Monthly Revenue" value="2,040" change="+1.8% Up from yesterday" icon={monthlyRevenue} />
                 </div>
 
-                <div className="content">
-                    {/* Add charts, tables, or other dashboard content here */}
-                </div>
+                <section className="card revenue-card">
+                    <div className="revenue-header">
+                        <h3>Revenue Details</h3>
+                        <select className="revenue-filter">
+                            <option>December</option>
+                            <option>November</option>
+                            <option>October</option>
+                            <option>September</option>
+                            <option>August</option>
+                            <option>July</option>
+                            <option>June</option>
+                            <option>May</option>
+                            <option>April</option>
+                            <option>March</option>
+                            <option>February</option>
+                            <option>January</option>
+                        </select>
+                    </div>
+
+                    <div className="chart-main-layout">
+                        {/* Y-Axis Labels */}
+                        <div className="y-axis">
+                            <span>sun</span>
+                            <span>Sat</span>
+                            <span>Sat</span>
+                            <span>Fri</span>
+                            <span>Thur</span>
+                            <span>Wed</span>
+                            <span>Tue</span>
+                            <span>Mon</span>
+                        </div>
+
+                        <div className="chart-content">
+                            <div className="chart-wrapper">
+                                <svg viewBox="0 0 800 260" className="revenue-chart" preserveAspectRatio="none">
+                                    {/* Background Grid Lines */}
+                                    {[...Array(8)].map((_, i) => (
+                                        <line key={i} x1="0" y1={i * 37} x2="800" y2={i * 37} stroke="#f0f0f0" strokeWidth="1" />
+                                    ))}
+
+                                    {/* Area */}
+                                    <path
+                                        d="M0 220 L50 210 L100 180 L150 190 L200 140 L250 200 L300 160 L350 170 L400 210 L450 150 L500 160 L550 140 L600 155 L650 165 L700 150 L750 160 L800 145 L800 260 L0 260 Z"
+                                        fill="rgba(255, 136, 0, 0.12)"
+                                    />
+
+                                    {/* Line */}
+                                    <path
+                                        d="M0 220 L50 210 L100 180 L150 190 L200 140 L250 200 L300 160 L350 170 L400 210 L450 150 L500 160 L550 140 L600 155 L650 165 L700 150 L750 160 L800 145"
+                                        fill="none"
+                                        stroke="#ff8800"
+                                        strokeWidth="2"
+                                    />
+
+                                    <circle cx="200" cy="140" r="4" fill="#ff8800" />
+                                </svg>
+                                <div className="chart-tooltip">64,366.77</div>
+                            </div>
+
+                            {/* X-Axis Labels */}
+                            <div className="x-axis">
+                                <span>5k</span>
+                                <span>10k</span>
+                                <span>15k</span>
+                                <span>20k</span>
+                                <span>25k</span>
+                                <span>30k</span>
+                                <span>35k</span>
+                                <span>40k</span>
+                                <span>45k</span>
+                                <span>50k</span>
+                                <span>55k</span>
+                                <span>60k</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     );
