@@ -119,7 +119,6 @@ const Dashboard = () => {
                         <div className="y-axis">
                             <span>sun</span>
                             <span>Sat</span>
-                            <span>Sat</span>
                             <span>Fri</span>
                             <span>Thur</span>
                             <span>Wed</span>

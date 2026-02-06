@@ -3,6 +3,7 @@ import Login from "./(auth)/login";
 import OrderManagement from "./components/order-management";
 import PaymentPage from "./components/payment";
 import Dashboard from "./components/dashboard";
+import OrderHistory from "./components/orderHistory";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/orders" element={<OrderHistory />} />
         <Route path="/riders" element={<h1>Riders</h1>} />
         <Route path="/vendors" element={<h1>Vendors</h1>} />
         <Route path="/customers" element={<h1>Customers</h1>} />
