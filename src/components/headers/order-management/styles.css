@@ -32,18 +32,6 @@
   margin: 0;
 }
 
-/* Search */
-/* .header__search input {
-  width: 260px;
-  padding: 0.6rem 0.75rem;
-  border-radius: 6px;
-  border: 1px solid #e5e5e5;
-  font-size: 0.9rem;
-  background-color: #f2f2f2;
-  margin-right: 7rem;
-  position: relative;
-} */
-
 .header__search input {
   width: 100%;
   padding: 0.6rem 0rem 0.6rem 2.4rem;
@@ -86,7 +74,7 @@
 .header__tab {
   background: none;
   border: none;
-  margin-left: 3%;
+  /* margin-left: 7%; */
   padding: 0.5rem .5rem;
   font-size: 1rem;
   font-weight: 500;

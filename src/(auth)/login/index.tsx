@@ -19,7 +19,7 @@ const Login = () => {
 
         // simple admin gate
         if (email === "admin" && password === "admin") {
-            navigate("/orders", { replace: true });
+            navigate("/ordermanagement", { replace: true });
         } else {
             setError("Invalid email or password");
         }

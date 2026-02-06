@@ -2,14 +2,17 @@ import './styles.css';
 import logo from '../../../assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCog, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const OrderManagementHeader = () => {
+
+  const navigate = useNavigate();
 
   const tabs = [
     { label: 'Orders', path: '/orders', active: true },
     { label: 'Vendors', path: '/vendors' },
     { label: 'Riders', path: '/riders' },
-    { label: 'Finance', path: '/finance' },
+    { label: 'Finance', path: '/payment' },
   ];
 
   return (
@@ -38,7 +41,7 @@ const OrderManagementHeader = () => {
             <button
               key={tab.label}
               className={`header__tab ${tab.active ? 'active' : ''}`}
-            // onClick={() => navigate(tab.path)}
+              onClick={() => navigate(tab.path)}
             >
               {tab.label}
             </button>
