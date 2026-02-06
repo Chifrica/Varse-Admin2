@@ -63,6 +63,15 @@ body {
   font-weight: 600;
 }
 
+.sidebar li a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.sidebar li a:hover {
+  color: var(--primary);
+}
+
 .sidebar-footer {
   font-size: 14px;
   color: var(--muted);

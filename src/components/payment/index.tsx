@@ -6,6 +6,7 @@ import pendingWallet from '../../assets/pendingWallet.png'
 import appRevenue from '../../assets/appRevenue.png'
 import riderWallet from '../../assets/riderWallet.png'
 import vendorEarning from '../../assets/vendorsEarning.png'
+import { NavLink } from "react-router-dom";
 
 interface StatProps {
     title: string;
@@ -24,7 +25,7 @@ function Stat({ title, value, change, danger, icon }: StatProps) {
                     <p className="stat-title">{title}</p>
                     <h2>{value}</h2>
                 </div>
-                {icon && <img src={icon} alt={title} className="stat-icon"  />}
+                {icon && <img src={icon} alt={title} className="stat-icon" />}
             </div>
             <span className={danger ? "danger" : "success"}>{change}</span>
         </div>
@@ -76,7 +77,7 @@ const PaymentPage = () => {
             {/* Sidebar */}
             <aside className="sidebar">
                 <h1 className="logo">Varse</h1>
-                <nav>
+                {/* <nav>
                     <ul>
                         <li>Dashboard</li>
                         <li>Order History</li>
@@ -85,6 +86,32 @@ const PaymentPage = () => {
                         <li>Customers</li>
                         <li>Support</li>
                         <li className="active">Payment</li>
+                    </ul>
+                </nav> */}
+
+                <nav>
+                    <ul>
+                        <li>
+                            <NavLink to="/dashboard" end >Dashboard</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/orders">Order History</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/riders">Riders</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/vendors">Vendors</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/customers">Customers</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/support">Support</NavLink>
+                        </li>
+                        <li className="active">
+                            <NavLink to="/payment">Payment</NavLink>
+                        </li>
                     </ul>
                 </nav>
                 <div className="sidebar-footer">Settings<br />Logout</div>
@@ -115,10 +142,10 @@ const PaymentPage = () => {
                     </div>
                 </div>
                 <div className="stats">
-                    <Stat title="App Revenue" value="40,689" change="+8.5% Up from yesterday" icon={appRevenue}  />
-                    <Stat title="Rider Wallet Balc." value="10,293" change="+1.3% Up from past week" icon={riderWallet}  />
-                    <Stat title="Vendor Earnings" value="$89,000" change="-4.3% Down from yesterday" danger icon={vendorEarning}  />
-                    <Stat title="Pending Withdrawals" value="2,040" change="+1.8% Up from yesterday" icon={pendingWallet}  />
+                    <Stat title="App Revenue" value="40,689" change="+8.5% Up from yesterday" icon={appRevenue} />
+                    <Stat title="Rider Wallet Balc." value="10,293" change="+1.3% Up from past week" icon={riderWallet} />
+                    <Stat title="Vendor Earnings" value="$89,000" change="-4.3% Down from yesterday" danger icon={vendorEarning} />
+                    <Stat title="Pending Withdrawals" value="2,040" change="+1.8% Up from yesterday" icon={pendingWallet} />
                 </div>
 
                 <div className="content">
