@@ -100,9 +100,6 @@ const Support = () => {
                 </div>
             </main>
         </div>
-
-        /* Main Content Area */
-
     )
 }
 

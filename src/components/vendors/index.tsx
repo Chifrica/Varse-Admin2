@@ -100,7 +100,6 @@ const Vendor = () => {
                 </div>
             </main>
         </div>
-
     )
 }
 
