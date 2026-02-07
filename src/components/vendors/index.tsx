@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 
 import dashboardIcon from '../../assets/dashboard.png';
-// import ordersIcon from '../../assets/ordersIcon.png';
 import ridersIcon from '../../assets/riderIcon.png';
 import vendorsIcon from '../../assets/vendor.png';
 import customersIcon from '../../assets/customer.png';
