@@ -9,7 +9,6 @@ import vendorEarning from '../../assets/vendorsEarning.png'
 import { NavLink } from "react-router-dom";
 
 import dashboardIcon from '../../assets/dashboard.png';
-// import ordersIcon from '../../assets/ordersIcon.png';
 import ridersIcon from '../../assets/riderIcon.png';
 import vendorsIcon from '../../assets/vendor.png';
 import customersIcon from '../../assets/customer.png';
@@ -218,7 +217,7 @@ const PaymentPage = () => {
                         <section className="card">
                             <h3>Quick Refund process</h3>
                             <p style={{ fontWeight: '400', fontSize: '13px' }}>Enter Transaction ID to initiate full transaction or reversal </p>
-                            <input placeholder="E.g Tnx ..." />
+                            <input placeholder="E.g Tnx ..." style={{color: "#000"}}/>
                             <button className="primary">Search transaction</button>
                         </section>
 
