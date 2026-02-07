@@ -2,7 +2,6 @@ import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 
 import dashboardIcon from '../../assets/dashboard.png';
 import ridersIcon from '../../assets/riderIcon.png';
