@@ -8,7 +8,6 @@ import monthlyRevenue from '../../assets/monthlyRevenue.png'
 import { NavLink } from 'react-router-dom';
 
 import dashboardIcon from '../../assets/dashboard.png';
-// import ordersIcon from '../../assets/ordersIcon.png';
 import ridersIcon from '../../assets/riderIcon.png';
 import vendorsIcon from '../../assets/vendor.png';
 import customersIcon from '../../assets/customer.png';
@@ -129,9 +128,9 @@ const Dashboard = () => {
                 </div>
                 <div className="stats">
                     <Stat title="Total User" value="40,689" change="+8.5% Up from yesterday" icon={totalUser} />
-                    <Stat title="Active User" value="10,293" change="+1.3% Up from past week" icon={activeUser} />
-                    <Stat title="Active Vendors" value="$89,000" change="-4.3% Down from yesterday" danger icon={activeVendor} />
-                    <Stat title="Monthly Revenue" value="2,040" change="+1.8% Up from yesterday" icon={monthlyRevenue} />
+                    <Stat title="Active Buyers" value="10,293" change="+1.3% Up from past week" icon={activeUser} />
+                    <Stat title="Active Vendors" value="5,500" change="-4.3% Down from yesterday" danger icon={activeVendor} />
+                    <Stat title="Monthly Revenue" value="$92,040" change="+1.8% Up from yesterday" icon={monthlyRevenue} />
                 </div>
 
                 <section className="card revenue-card">
@@ -214,6 +213,5 @@ const Dashboard = () => {
         </div>
     );
 }
-
 
 export default Dashboard;

@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 
 import dashboardIcon from '../../assets/dashboard.png';
-// import ordersIcon from '../../assets/ordersIcon.png';
 import ridersIcon from '../../assets/riderIcon.png';
 import vendorsIcon from '../../assets/vendor.png';
 import customersIcon from '../../assets/customer.png';
@@ -15,8 +14,51 @@ import logout from '../../assets/logout.png';
 import settings from '../../assets/setting.png';
 
 import logo from '../../assets/logo.png';
+import { supabase } from '../../supabaseClient';
+import { useEffect, useState } from 'react';
+
+interface Order {
+    id: string;
+    order_id: string;
+    buyer_id: string;
+    vendor_id: string;
+    product_name: string;
+    category: string;
+    quantity: number;
+    status: string;
+    created_at: string;
+}
+
 
 const OrderHistory = () => {
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        window.location.href = "/login";
+    };
+
+    const [orders, setOrders] = useState<Order[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchOrders = async () => {
+            const { data, error } = await supabase
+                .from("orders")
+                .select("*")
+                .order("created_at", { ascending: false });
+
+            if (error) {
+                console.error("Error fetching orders:", error);
+            } else {
+                setOrders(data);
+            }
+
+            setLoading(false);
+        };
+
+        fetchOrders();
+    }, []);
+
     return (
         <div className="app">
             {/* Sidebar */}
@@ -72,7 +114,7 @@ const OrderHistory = () => {
                         <img src={settings} className="nav-icon" /> Settings
                     </div>
                     <div className="footer-item">
-                        <img src={logout} className="nav-icon" /> Logout
+                        <img src={logout} className="nav-icon" onClick={handleLogout} /> Logout
                     </div>
                 </div>
             </aside>
@@ -149,24 +191,31 @@ const OrderHistory = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {[...Array(10)].map((_, i) => (
-                                <tr key={i}>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td><span className="status-pill paid">Paid</span></td>
+                            {loading && (
+                                <tr>
+                                    <td colSpan={8}>Loading orders...</td>
+                                </tr>
+                            )}
+                            {orders.map((order) => (
+                                <tr key={order.id}>
+                                    <td>{order.order_id}</td>
+                                    <td>{order.buyer_id}</td>
+                                    <td>{order.vendor_id}</td>
+                                    <td>{order.product_name}</td>
+                                    <td>{order.category}</td>
+                                    <td>{new Date(order.created_at).toLocaleString()}</td>
+                                    <td>{order.quantity}</td>
+                                    <td>
+                                        <span className={`status-pill ${order.status.toLowerCase()}`}>
+                                            {order.status}
+                                        </span>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
-
             </main>
-
         </div>
     );
 }
