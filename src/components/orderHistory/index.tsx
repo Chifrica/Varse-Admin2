@@ -1,7 +1,7 @@
 import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 
 import dashboardIcon from '../../assets/dashboard.png';
@@ -19,23 +19,24 @@ import { useEffect, useState } from 'react';
 
 interface Order {
     id: string;
-    order_id: string;
+    product_id: string;
     buyer_id: string;
     vendor_id: string;
-    product_name: string;
-    category: string;
-    quantity: number;
-    status: string;
+    name: string;
+    total_price: string;
+    qty: number;
+    paid: string;
     created_at: string;
 }
 
-
 const OrderHistory = () => {
 
-    const handleLogout = async () => {
-        await supabase.auth.signOut();
-        window.location.href = "/login";
-    };
+    const navigate = useNavigate();
+
+const handleLogout = async () => {
+  await supabase.auth.signOut();
+  navigate('/login', { replace: true });
+};
 
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
@@ -111,10 +112,10 @@ const OrderHistory = () => {
                 </nav>
                 <div className="sidebar-footer">
                     <div className="footer-item">
-                        <img src={settings} className="nav-icon" /> Settings
+                        <img src={settings} className="nav-icon" onClick={handleLogout}/> Settings
                     </div>
                     <div className="footer-item">
-                        <img src={logout} className="nav-icon" onClick={handleLogout} /> Logout
+                        <img src={logout} className="nav-icon" /> Logout
                     </div>
                 </div>
             </aside>
@@ -157,7 +158,8 @@ const OrderHistory = () => {
                                 <option>Buyer ID</option>
                                 <option>Vendor ID</option>
                                 <option>Product Name</option>
-                                <option>Category</option>
+                                <option>Total Price</option>
+                                <option>Quantity</option>
                                 <option>Date-Time</option>
                             </select>
                         </div>
@@ -184,7 +186,7 @@ const OrderHistory = () => {
                                 <th>Buyers ID</th>
                                 <th>Vendor ID</th>
                                 <th>Product Name</th>
-                                <th>Category</th>
+                                <th>Total Price</th>
                                 <th>Date-Time</th>
                                 <th>Quantity</th>
                                 <th>Status</th>
@@ -196,22 +198,27 @@ const OrderHistory = () => {
                                     <td colSpan={8}>Loading orders...</td>
                                 </tr>
                             )}
-                            {orders.map((order) => (
-                                <tr key={order.id}>
-                                    <td>{order.order_id}</td>
-                                    <td>{order.buyer_id}</td>
-                                    <td>{order.vendor_id}</td>
-                                    <td>{order.product_name}</td>
-                                    <td>{order.category}</td>
-                                    <td>{new Date(order.created_at).toLocaleString()}</td>
-                                    <td>{order.quantity}</td>
-                                    <td>
-                                        <span className={`status-pill ${order.status.toLowerCase()}`}>
-                                            {order.status}
-                                        </span>
-                                    </td>
-                                </tr>
-                            ))}
+                            {orders.map((order) => {
+                                if (!order.id) return null;
+
+                                return (
+                                    <tr key={order.id}>
+                                        <td>{order.product_id}</td>
+                                        <td>{order.buyer_id}</td>
+                                        <td>{order.vendor_id}</td>
+                                        <td>{order.name}</td>
+                                        <td>{order.total_price}</td>
+                                        <td>{new Date(order.created_at).toLocaleString()}</td>
+                                        <td>{order.qty}</td>
+                                        <td>
+                                            <span className={`status-pill ${order.paid ?? 'unknown'}`}>
+                                                {order.paid ? 'Paid' : 'Unpaid'}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+
                         </tbody>
                     </table>
                 </div>
