@@ -4,6 +4,10 @@ import OrderManagement from "./components/order-management";
 import PaymentPage from "./components/payment";
 import Dashboard from "./components/dashboard";
 import OrderHistory from "./components/orderHistory";
+import Vendor from "./components/vendors";
+import Support from "./components/support";
+import Rider from "./components/riders";
+import Customer from "./components/customers";
 
 function App() {
   return (
@@ -15,10 +19,10 @@ function App() {
         <Route path="*" element={<h1>404 Not Found</h1>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/orders" element={<OrderHistory />} />
-        <Route path="/riders" element={<h1>Riders</h1>} />
-        <Route path="/vendors" element={<h1>Vendors</h1>} />
-        <Route path="/customers" element={<h1>Customers</h1>} />
-        <Route path="/support" element={<h1>Support</h1>} />
+        <Route path="/riders" element={<Rider/>} />
+        <Route path="/vendors" element={<Vendor />} />
+        <Route path="/customers" element={<Customer />} />
+        <Route path="/support" element={<Support />} />
       </Routes>
     </Router>
   );

@@ -8,6 +8,18 @@ import riderWallet from '../../assets/riderWallet.png'
 import vendorEarning from '../../assets/vendorsEarning.png'
 import { NavLink } from "react-router-dom";
 
+import dashboardIcon from '../../assets/dashboard.png';
+// import ordersIcon from '../../assets/ordersIcon.png';
+import ridersIcon from '../../assets/riderIcon.png';
+import vendorsIcon from '../../assets/vendor.png';
+import customersIcon from '../../assets/customer.png';
+import supportIcon from '../../assets/support.png';
+import paymentIcon from '../../assets/payment.png';
+import logout from '../../assets/logout.png';
+import settings from '../../assets/setting.png';
+
+import logo from '../../assets/logo.png';
+
 interface StatProps {
     title: string;
     value: string;
@@ -76,45 +88,60 @@ const PaymentPage = () => {
         <div className="app">
             {/* Sidebar */}
             <aside className="sidebar">
-                <h1 className="logo">Varse</h1>
-                {/* <nav>
-                    <ul>
-                        <li>Dashboard</li>
-                        <li>Order History</li>
-                        <li>Riders</li>
-                        <li>Vendors</li>
-                        <li>Customers</li>
-                        <li>Support</li>
-                        <li className="active">Payment</li>
-                    </ul>
-                </nav> */}
+                <div className="logo">
+                    <img src={logo} className="logo-icon" />
+                    <h1>
+                        Varse
+                    </h1>
+                </div>
 
                 <nav>
                     <ul>
                         <li>
-                            <NavLink to="/dashboard" end >Dashboard</NavLink>
+                            <NavLink to="/dashboard" end>
+                                <img src={dashboardIcon} className="nav-icon" /> Dashboard
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/orders">Order History</NavLink>
+                            <NavLink to="/orders">
+                                <img src={dashboardIcon} className="nav-icon" /> Order History
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/riders">Riders</NavLink>
+                            <NavLink to="/riders">
+                                <img src={ridersIcon} className="nav-icon" /> Riders
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/vendors">Vendors</NavLink>
+                            <NavLink to="/vendors">
+                                <img src={vendorsIcon} className="nav-icon" /> Vendors
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/customers">Customers</NavLink>
+                            <NavLink to="/customers">
+                                <img src={customersIcon} className="nav-icon" /> Customers
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/support">Support</NavLink>
+                            <NavLink to="/support">
+                                <img src={supportIcon} className="nav-icon" /> Support
+                            </NavLink>
                         </li>
-                        <li className="active">
-                            <NavLink to="/payment">Payment</NavLink>
+                        <li  className="active">
+                            <NavLink to="/payment">
+                                <img src={paymentIcon} className="nav-icon" /> Payment
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>
-                <div className="sidebar-footer">Settings<br />Logout</div>
+                <div className="sidebar-footer">
+                    <div className="footer-item">
+                        <img src={settings} className="nav-icon" /> Settings
+                    </div>
+                    <div className="footer-item">
+                        <img src={logout} className="nav-icon" /> Logout
+                    </div>
+                </div>
             </aside>
 
             {/* Main */}

@@ -16,7 +16,7 @@ import settings from '../../assets/setting.png';
 
 import logo from '../../assets/logo.png';
 
-const OrderHistory = () => {
+const Customer = () => {
     return (
         <div className="app">
             {/* Sidebar */}
@@ -35,7 +35,7 @@ const OrderHistory = () => {
                                 <img src={dashboardIcon} className="nav-icon" /> Dashboard
                             </NavLink>
                         </li>
-                        <li className="active">
+                        <li>
                             <NavLink to="/orders">
                                 <img src={dashboardIcon} className="nav-icon" /> Order History
                             </NavLink>
@@ -50,7 +50,7 @@ const OrderHistory = () => {
                                 <img src={vendorsIcon} className="nav-icon" /> Vendors
                             </NavLink>
                         </li>
-                        <li>
+                        <li className="active">
                             <NavLink to="/customers">
                                 <img src={customersIcon} className="nav-icon" /> Customers
                             </NavLink>
@@ -77,7 +77,6 @@ const OrderHistory = () => {
                 </div>
             </aside>
 
-            {/* Main */}
             <main className="main">
                 {/* Top stats */}
                 <div className="topbar">
@@ -99,76 +98,9 @@ const OrderHistory = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Professionalized Order History Section */}
-                <div className="order-history-header">
-                    <h2>Order History</h2>
-
-                    <div className="filter-bar">
-                        <span className="filter-label">Filters</span>
-                        <div className="filter-group">
-                            <label>Order Types: <span className="highlight">All</span></label>
-                            <FontAwesomeIcon icon={faChevronDown} className="filter-icon" />
-                            <select>
-                                <option>All</option>
-                                <option>Order ID</option>
-                                <option>Buyer ID</option>
-                                <option>Vendor ID</option>
-                                <option>Product Name</option>
-                                <option>Category</option>
-                                <option>Date-Time</option>
-                            </select>
-                        </div>
-
-                        <div className="filter-group">
-                            <label>Status: <span className="highlight">Active</span></label>
-                            <FontAwesomeIcon icon={faChevronDown} className="filter-icon" />
-                            <select><option>Active</option></select>
-                        </div>
-
-                        <div className="filter-group">
-                            <label>Date: <span className="highlight">This Month</span></label>
-                            <FontAwesomeIcon icon={faChevronDown} className="filter-icon" />
-                            <select><option>This Month</option></select>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="table-container">
-                    <table className="order-table">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Buyers ID</th>
-                                <th>Vendor ID</th>
-                                <th>Product Name</th>
-                                <th>Category</th>
-                                <th>Date-Time</th>
-                                <th>Quantity</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {[...Array(10)].map((_, i) => (
-                                <tr key={i}>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td>0001RD</td>
-                                    <td><span className="status-pill paid">Paid</span></td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-
             </main>
-
         </div>
-    );
+    )
 }
 
-export default OrderHistory;
+export default Customer;
