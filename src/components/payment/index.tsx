@@ -18,6 +18,8 @@ import logout from '../../assets/logout.png';
 import settings from '../../assets/setting.png';
 
 import logo from '../../assets/logo.png';
+import bank from '../../assets/bank.png'
+import quick from '../../assets/quick.png'
 
 interface StatProps {
     title: string;
@@ -46,12 +48,14 @@ function Stat({ title, value, change, danger, icon }: StatProps) {
 function Payment() {
     return (
         <div className="payment">
-            <div>
-                <strong>Johnathan Doe</strong>
-                <p>Rider • 2h ago</p>
+            <div style={{display: "flex", gap: "15rem", alignItems: "center", paddingTop: '-10rem'}}>
+                <div>
+                    <p style={{fontSize: "14px", width: '100px'}}><strong>Johnathan Doe</strong></p>
+                    <p className="txt">Rider • 2h ago</p>
+                </div>
+                <span className="amount">₦20,000</span>
             </div>
             <div className="payment-actions">
-                <span className="amount">₦20,000</span>
                 <button className="primary">Approve</button>
                 <button className="ghost">Reject</button>
             </div>
@@ -126,7 +130,7 @@ const PaymentPage = () => {
                                 <img src={supportIcon} className="nav-icon" /> Support
                             </NavLink>
                         </li>
-                        <li  className="active">
+                        <li className="active">
                             <NavLink to="/payment">
                                 <img src={paymentIcon} className="nav-icon" /> Payment
                             </NavLink>
@@ -215,15 +219,21 @@ const PaymentPage = () => {
                     {/* Right column */}
                     <div className="side-panels">
                         <section className="card">
-                            <h3>Quick Refund process</h3>
-                            <p style={{ fontWeight: '400', fontSize: '13px' }}>Enter Transaction ID to initiate full transaction or reversal </p>
-                            <input placeholder="E.g Tnx ..." style={{color: "#000"}}/>
+                            <div style={{ marginTop: '-10px', display: 'flex', alignItems: 'center' }}>
+                                <img src={quick} alt="" style={{ marginTop: '-5px' }} />
+                                <p style={{ fontSize: '20px', marginTop: '5px', marginBottom: "10px" }}>Quick Refund process</p>
+                            </div>
+                            <p style={{ fontWeight: '506', fontSize: '15px', color: "#6B7280" }}>Enter Transaction ID to initiate full transaction or reversal </p>
+                            <input placeholder="E.g Tnx ..." style={{ color: "#000" }} />
                             <button className="primary">Search transaction</button>
                         </section>
 
                         <section className="card">
                             <div className="payments-header">
-                                <h3>Payments Request</h3>
+                                <div className="payments-header-icon">
+                                    <img src={bank} alt="" style={{ marginTop: '-15px' }} />
+                                    <p style={{ fontSize: '20px', marginTop: '0px' }}>Payments Request</p>
+                                </div>
                                 <span className="badge">Urgent</span>
                             </div>
                             <Payment />
