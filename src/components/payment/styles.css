@@ -323,7 +323,7 @@ button {
 }
 
 .ghost {
-  background: #fff;
+  background: #f3f4f6;
   color: var(--text);
 }
 
@@ -396,6 +396,28 @@ button {
     border-radius: 12px;
     width: 420px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.modal h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.modal p.p1 {
+    text-align: center;
+    margin: 16px 0;
+    color: #374151;
+}
+
+.modal-details span {
+    /* background: #f3f4f6; */
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e5e7eb;
+    display: block;
 }
 
 .modal-details p {

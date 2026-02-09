@@ -334,11 +334,12 @@ const PaymentPage = () => {
                     <div className="modal-overlay">
                         <div className="modal">
                             <h3>Approve Withdrawal</h3>
-                            <p>You are about to approve a withdrawal of <strong>₦{selectedWithdrawal.amount.toLocaleString()}</strong></p>
+                            <p className="p1">You are about to approve a withdrawal of <strong>₦{selectedWithdrawal.amount.toLocaleString()}</strong></p>
                             <div className="modal-details">
-                                <p><strong>Bank:</strong> {selectedWithdrawal.bank_name}</p>
-                                <p><strong>Account:</strong> {selectedWithdrawal.account_number}</p>
-                                <p><strong>Name:</strong> {selectedWithdrawal.account_name}</p>
+                                <p><strong>Bank:</strong><br /> </p>
+                                <p><span> {selectedWithdrawal.bank_name}</span></p>
+                                <p><strong>Account:</strong><br /><span> {selectedWithdrawal.account_number}</span></p>
+                                <p><strong>Name:</strong><br /><span> {selectedWithdrawal.account_name}</span></p>
                             </div>
                             <div className="modal-actions">
                                 <button className="ghost" onClick={() => setShowModal(false)}>Cancel</button>
