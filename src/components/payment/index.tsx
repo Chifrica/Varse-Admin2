@@ -20,6 +20,8 @@ import settings from '../../assets/setting.png';
 import logo from '../../assets/logo.png';
 import bank from '../../assets/bank.png'
 import quick from '../../assets/quick.png'
+import congrate from '../../assets/congrats.png';
+
 import { supabase } from "../../supabaseClient";
 
 // --- INTERFACES ---
@@ -53,6 +55,7 @@ interface WithdrawalRequest {
 }
 
 // --- SUB-COMPONENTS ---
+
 function Stat({ title, value, change, danger, icon }: StatProps) {
     return (
         <div className="stat">
@@ -98,6 +101,7 @@ const PaymentPage = () => {
     const [selectedWithdrawal, setSelectedWithdrawal] = useState<WithdrawalRequest | null>(null);
     const [showModal, setShowModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     const [stats, setStats] = useState({
         appRevenue: 0,
@@ -186,6 +190,8 @@ const PaymentPage = () => {
             setTotalWithdrawalCount(prev => prev - 1);
             setShowModal(false);
             setSelectedWithdrawal(null);
+            setShowSuccessModal(true);
+            setTimeout(() => setShowSuccessModal(false), 3000);
         } else {
             alert("Error approving withdrawal: " + error.message);
         }
@@ -251,9 +257,9 @@ const PaymentPage = () => {
                     <div className="topbar-actions">
                         <div className="header__search">
                             <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                            <input 
-                                type="text" 
-                                placeholder="Search by Transaction ID..." 
+                            <input
+                                type="text"
+                                placeholder="Search by Transaction ID..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
@@ -333,7 +339,7 @@ const PaymentPage = () => {
                                 </div>
                                 <span className="badge">Urgent</span>
                             </div>
-                            
+
                             {withdrawals.length > 0 ? withdrawals.map(req => (
                                 <Payment
                                     key={req.id}
@@ -370,6 +376,29 @@ const PaymentPage = () => {
                         </div>
                     </div>
                 )}
+
+                {showSuccessModal && (
+                    <div className="modal-overlay">
+                        <div className="modal" style={{ textAlign: "center" }}>
+                            <img src={congrate} alt="Congratulations" />
+                            <h2 style={{ marginBottom: "8px" }}>
+                                🎉 Congratulations
+                            </h2>
+
+                            <p style={{ color: "#6B7280", marginBottom: "24px" }}>
+                                Transfer Completed Successfully
+                            </p>
+
+                            <button
+                                className="primary"
+                                onClick={() => setShowSuccessModal(false)}
+                            >
+                                Done
+                            </button>
+                        </div>
+                    </div>
+                )}
+
             </main>
         </div>
     );
