@@ -33,10 +33,10 @@ const OrderHistory = () => {
 
     const navigate = useNavigate();
 
-const handleLogout = async () => {
-  await supabase.auth.signOut();
-  navigate('/login', { replace: true });
-};
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        navigate('/login', { replace: true });
+    };
 
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
@@ -112,10 +112,21 @@ const handleLogout = async () => {
                 </nav>
                 <div className="sidebar-footer">
                     <div className="footer-item">
-                        <img src={settings} className="nav-icon" onClick={handleLogout}/> Settings
-                    </div>
-                    <div className="footer-item">
-                        <img src={logout} className="nav-icon" /> Logout
+                        <nav>
+                            <ul>
+                                <li>
+                                    <NavLink to="/setting">
+                                        <img src={settings} className="nav-icon" /> Settings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/logout">
+                                        <img src={logout} className="nav-icon" /> Logout
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
             </aside>

@@ -67,10 +67,21 @@ const Customer = () => {
                 </nav>
                 <div className="sidebar-footer">
                     <div className="footer-item">
-                        <img src={settings} className="nav-icon" /> Settings
-                    </div>
-                    <div className="footer-item">
-                        <img src={logout} className="nav-icon" /> Logout
+                        <nav>
+                            <ul>
+                                <li>
+                                    <NavLink to="/setting">
+                                        <img src={settings} className="nav-icon" /> Settings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/logout">
+                                        <img src={logout} className="nav-icon" /> Logout
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
             </aside>

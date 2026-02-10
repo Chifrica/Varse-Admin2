@@ -153,16 +153,27 @@ const Dashboard = () => {
                 </nav>
                 <div className="sidebar-footer">
                     <div className="footer-item">
-                        <img src={settings} className="nav-icon" /> Settings
-                    </div>
-                    <div className="footer-item">
-                        <img src={logout} className="nav-icon" /> Logout
+                        <nav>
+                            <ul>
+                                <li>
+                                    <NavLink to="/setting">
+                                        <img src={settings} className="nav-icon" /> Settings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/logout">
+                                        <img src={logout} className="nav-icon" /> Logout
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
-            </aside>
+            </aside >
 
             {/* Main */}
-            <main className="main">
+            < main className="main" >
                 {/* Top stats */}
 
                 {/* Add search icon, notification icon, admin profile icon, [(horizontal to each other)admin name, admin] */}
@@ -268,8 +279,8 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </section>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 }
 
