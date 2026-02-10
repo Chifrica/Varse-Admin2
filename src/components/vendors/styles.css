@@ -85,7 +85,7 @@ body {
 .sidebar nav {
     flex: 1;
     overflow-y: auto;
-    padding-right: 4px; /* Space so the scrollbar doesn't overlap text */
+    padding-right: 4px; 
 }
 
 /* Optional: Hide scrollbar in sidebar until hover for an ultra-clean look */
@@ -114,6 +114,48 @@ body {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
+}
+
+.vendor-tabs ul {
+    display: flex;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-bottom: 1px solid var(--border);
+}
+
+.vendor-tabs li {
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Hover state */
+.vendor-tabs li:hover {
+    color: var(--text);
+}
+
+/* Active tab */
+.vendor-tabs li.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Active underline */
+.vendor-tabs li.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
 }
 
 .header__search {
@@ -155,4 +197,157 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+/* Table Styling */
+.table-container {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.order-table th {
+    background: #fcfcfc;
+    padding: 16px;
+    font-size: 14px;
+    color: #1f2937;
+    font-weight: 600;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-table td {
+    padding: 16px;
+    font-size: 14px;
+    color: #6b7280;
+    border-bottom: 1px solid #f9fafb;
+}
+
+.order-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+/* Page numbers */
+.page {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page:hover {
+    background: #f9fafb;
+    border-color: var(--primary);
+}
+
+/* Active page */
+.page.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* Previous / Next */
+.pagination-button {
+    padding: 0 14px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.pagination-button:hover {
+    background: #f9fafb;
+    border-color: var(--primary);
+}
+
+/* Disabled state (optional) */
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #fff;
+    width: 420px;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn-secondary {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.btn-danger {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    background: #dc2626;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-danger:disabled,
+.btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
