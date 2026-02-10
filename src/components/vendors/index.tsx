@@ -36,14 +36,15 @@ const Vendor = () => {
     const [vendors, setVendors] = useState<VendorRow[]>([]);
     const [loading, setLoading] = useState(true);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-const [selectedVendorId, setSelectedVendorId] = useState<string | null>(null);
-const [deleting, setDeleting] = useState(false);
+    const [selectedVendorId, setSelectedVendorId] = useState<string | null>(null);
+    const [deleting, setDeleting] = useState(false);
 
     const requestDeletevendor = (vendorId: string) => {
         setSelectedVendorId(vendorId);
         setShowDeleteModal(true);
     };
 
+    /* ---------------- DELETE VENDOR ---------------- */
     const confirmDeletevendor = async () => {
         if (!selectedVendorId) return;
 
@@ -83,25 +84,6 @@ const [deleting, setDeleting] = useState(false);
 
         if (!error && data) {
             setVendors(data);
-        }
-    };
-
-    /* ---------------- DELETE VENDOR ---------------- */
-    const deleteVendor = async (vendorId: string) => {
-        const confirmed = window.confirm('Are you sure you want to delete this vendor?');
-        if (!confirmed) return;
-
-        const { error } = await supabase
-            .from('profiles')
-            .update({ status: 'blocked' })
-            .eq('id', vendorId);
-
-        if (!error) {
-            setVendors(prev =>
-                prev.map(v =>
-                    v.id === vendorId ? { ...v, status: 'blocked' } : v
-                )
-            );
         }
     };
 

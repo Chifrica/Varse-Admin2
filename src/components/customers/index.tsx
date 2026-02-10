@@ -56,7 +56,6 @@ const Customers = () => {
             .from('profiles')
             .select('*')
             .eq('role', 'buyer')
-        // .order('created_at', { ascending: false });
 
         if (!error && data) {
             setBuyer(data);
@@ -64,23 +63,6 @@ const Customers = () => {
     };
 
     /* ---------------- DELETE VENDOR ---------------- */
-    // const deleteBuyer = async (vendorId: string) => {
-    //     const confirmed = window.confirm('Are you sure you want to delete this buyer?');
-    //     if (!confirmed) return;
-
-    //     const { error } = await supabase
-    //         .from('profiles')
-    //         .update({ status: 'blocked' })
-    //         .eq('id', vendorId);
-
-    //     if (!error) {
-    //         setBuyer(prev =>
-    //             prev.map(v =>
-    //                 v.id === vendorId ? { ...v, status: 'blocked' } : v
-    //             )
-    //         );
-    //     }
-    // };
 
     const confirmDeleteBuyer = async () => {
         if (!selectedBuyerId) return;
