@@ -10,6 +10,8 @@ import Rider from "./components/riders";
 import Customer from "./components/customers";
 import Settings from "./components/setting";
 
+import { Analytics } from "@vercel/analytics/next";
+
 function App() {
   return (
     <Router>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/setting" element={<Settings />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
