@@ -195,7 +195,7 @@ const Customers = () => {
                 <div className="vendor-tabs">
                     <ul>
                         {[
-                            { label: 'All Vendors', value: 'all' },
+                            { label: 'All Buyers', value: 'all' },
                             { label: 'Active', value: 'active' },
                             { label: 'In-Active', value: 'inactive' },
                             { label: 'Blocked', value: 'blocked' },
