@@ -1,7 +1,7 @@
 import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import dashboardIcon from '../../assets/dashboard.png';
 import ridersIcon from '../../assets/riderIcon.png';
@@ -13,8 +13,16 @@ import logout from '../../assets/logout.png';
 import settings from '../../assets/setting.png';
 
 import logo from '../../assets/logo.png';
+import { supabase } from '../../supabaseClient';
 
 const Support = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        navigate('/', { replace: true });
+    };
+    
     return (
         <div className="app">
             {/* Sidebar */}
@@ -75,7 +83,7 @@ const Support = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/logout">
+                                    <NavLink to="/" onClick={handleLogout}>
                                         <img src={logout} className="nav-icon" /> Logout
                                     </NavLink>
                                 </li>
@@ -107,6 +115,16 @@ const Support = () => {
                         </div>
                     </div>
                 </div>
+
+                <p>Support and Disputes</p>
+                <nav>
+                    <ul>
+                        <li>Buyers complaints</li>
+                        <li>Riders complaints</li>
+                        <li>Vendors complaints</li>
+                        <li>Payment disputes</li>
+                    </ul>
+                </nav>
             </main>
         </div>
     )

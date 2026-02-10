@@ -200,7 +200,7 @@ const Dashboard = () => {
                     <Stat title="Total User" value={loading ? '—' : totalUsers.toLocaleString()} change="+8.5% Up from yesterday" icon={totalUser} />
                     <Stat title="Active Buyers" value={loading ? '—' : activeBuyers.toLocaleString()} change="+1.3% Up from past week" icon={activeUser} />
                     <Stat title="Active Vendors" value={loading ? '—' : activeVendors.toLocaleString()} change="-4.3% Down from yesterday" danger icon={activeVendor} />
-                    <Stat title="Monthly Revenue" value={loading ? '—' : `$${monthlyRevenues.toLocaleString()}`} change="+1.8% Up from yesterday" icon={monthlyRevenue} />
+                    <Stat title="Monthly Revenue" value={loading ? '—' : `₦${monthlyRevenues.toLocaleString()}`} change="+1.8% Up from yesterday" icon={monthlyRevenue} />
                 </div>
 
                 <section className="card revenue-card">

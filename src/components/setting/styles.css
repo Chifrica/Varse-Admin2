@@ -46,6 +46,17 @@ body {
     font-size: 24px;
 }
 
+.sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-footer {
+    margin-top: -10px;
+}
+
 /* Nav Item Styling */
 .sidebar li a, .footer-item {
     display: flex;
@@ -83,19 +94,21 @@ body {
 }
 
 .sidebar nav {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 4px; /* Space so the scrollbar doesn't overlap text */
+    flex: 0 0 auto;
+    overflow: hidden;
 }
 
 /* Optional: Hide scrollbar in sidebar until hover for an ultra-clean look */
 .sidebar nav::-webkit-scrollbar-thumb {
     background: transparent;
+    display: none;
 }
 
 .sidebar nav:hover::-webkit-scrollbar-thumb {
     background: #e5e7eb;
-}  */
+    display: none;
+}  
+
 /* Main */
 .main {
     flex: 1;

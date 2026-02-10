@@ -6,7 +6,7 @@ import pendingWallet from '../../assets/pendingWallet.png'
 import appRevenue from '../../assets/appRevenue.png'
 import riderWallet from '../../assets/riderWallet.png'
 import vendorEarning from '../../assets/vendorsEarning.png'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import dashboardIcon from '../../assets/dashboard.png';
 import ridersIcon from '../../assets/riderIcon.png';
@@ -200,6 +200,13 @@ const PaymentPage = () => {
 
     const tabs: TabType[] = ["All Transactions", "Riders", "Customers", "Vendors"];
 
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        navigate('/', { replace: true });
+    };
+
     return (
         <div className="app">
             <aside className="sidebar">
@@ -228,7 +235,7 @@ const PaymentPage = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/logout">
+                                    <NavLink to="/" onClick={handleLogout}>
                                         <img src={logout} className="nav-icon" /> Logout
                                     </NavLink>
                                 </li>

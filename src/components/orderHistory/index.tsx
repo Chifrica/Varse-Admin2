@@ -35,7 +35,7 @@ const OrderHistory = () => {
 
     const handleLogout = async () => {
         await supabase.auth.signOut();
-        navigate('/login', { replace: true });
+        navigate('/', { replace: true });
     };
 
     const [orders, setOrders] = useState<Order[]>([]);
@@ -120,7 +120,7 @@ const OrderHistory = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/logout">
+                                    <NavLink to="/logout" onClick={handleLogout}>
                                         <img src={logout} className="nav-icon" /> Logout
                                     </NavLink>
                                 </li>

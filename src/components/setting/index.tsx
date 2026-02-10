@@ -2,7 +2,6 @@ import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 
 import dashboardIcon from '../../assets/dashboard.png';
 import ridersIcon from '../../assets/riderIcon.png';
@@ -15,19 +14,18 @@ import settings from '../../assets/setting.png';
 
 import logo from '../../assets/logo.png';
 import { supabase } from '../../supabaseClient';
-import { useEffect, useState } from 'react';
 
-interface Order {
-    id: string;
-    product_id: string;
-    buyer_id: string;
-    vendor_id: string;
-    name: string;
-    total_price: string;
-    qty: number;
-    paid: string;
-    created_at: string;
-}
+// interface Order {
+//     id: string;
+//     product_id: string;
+//     buyer_id: string;
+//     vendor_id: string;
+//     name: string;
+//     total_price: string;
+//     qty: number;
+//     paid: string;
+//     created_at: string;
+// }
 
 const Settings = () => {
 
@@ -35,30 +33,30 @@ const Settings = () => {
 
     const handleLogout = async () => {
         await supabase.auth.signOut();
-        navigate('/login', { replace: true });
+        navigate('/', { replace: true });
     };
 
-    const [orders, setOrders] = useState<Order[]>([]);
-    const [loading, setLoading] = useState(true);
+    // const [orders, setOrders] = useState<Order[]>([]);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchOrders = async () => {
-            const { data, error } = await supabase
-                .from("orders")
-                .select("*")
-                .order("created_at", { ascending: false });
+    // useEffect(() => {
+    //     const fetchOrders = async () => {
+    //         const { data, error } = await supabase
+    //             .from("orders")
+    //             .select("*")
+    //             .order("created_at", { ascending: false });
 
-            if (error) {
-                console.error("Error fetching orders:", error);
-            } else {
-                setOrders(data);
-            }
+    //         if (error) {
+    //             console.error("Error fetching orders:", error);
+    //         } else {
+    //             setOrders(data);
+    //         }
 
-            setLoading(false);
-        };
+    //         setLoading(false);
+    //     };
 
-        fetchOrders();
-    }, []);
+    //     fetchOrders();
+    // }, []);
 
     return (
         <div className="app">
@@ -120,7 +118,7 @@ const Settings = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/logout">
+                                    <NavLink to="/" onClick={handleLogout}>
                                         <img src={logout} className="nav-icon" /> Logout
                                     </NavLink>
                                 </li>
@@ -153,7 +151,10 @@ const Settings = () => {
                         </div>
                     </div>
                 </div>
-                {/* Orders table */}
+                
+                <p className="coming-soon">Settings Overview</p>
+                <p>Manage systems settings Configuration Platforms rule and adminstrative control.</p>
+
             </main>
         </div>
     );
