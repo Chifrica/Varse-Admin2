@@ -8,6 +8,7 @@ import Vendor from "./components/vendors";
 import Support from "./components/support";
 import Rider from "./components/riders";
 import Customer from "./components/customers";
+import Settings from "./components/setting";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/vendors" element={<Vendor />} />
         <Route path="/customers" element={<Customer />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/setting" element={<Settings />} />
       </Routes>
     </Router>
   );
