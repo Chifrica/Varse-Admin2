@@ -221,6 +221,7 @@ const Customers = () => {
                                 <th>Address</th>
                                 <th>Email</th>
                                 <th>Date-Time</th>
+                                <th style={{ color: 'red' }}>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -247,7 +248,7 @@ const Customers = () => {
                                     <td>{buyer.phone_number}</td>
                                     <td>{buyer.address}</td>
                                     <td>{buyer.email}</td>
-                                    <td>{ new Date(buyer.updated_at).toLocaleString()}</td>
+                                    <td>{new Date(buyer.updated_at).toLocaleString()}</td>
 
                                     {/* LOGIC ONLY – hook this to any button later */}
                                     <td>

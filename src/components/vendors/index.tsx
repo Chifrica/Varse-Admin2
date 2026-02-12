@@ -221,6 +221,7 @@ const Vendor = () => {
                                 <th>Address</th>
                                 <th>Email</th>
                                 <th>Date-Time</th>
+                                <th style={{color: 'red'}}>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
