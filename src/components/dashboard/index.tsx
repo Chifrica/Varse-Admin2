@@ -50,6 +50,43 @@ const Dashboard = () => {
     const [activeVendors, setActiveVendors] = useState(0);
     const [monthlyRevenues, setMonthlyRevenues] = useState(0);
     const [loading, setLoading] = useState(true);
+    const formattedMonthlyRevenue = `₦${monthlyRevenues.toLocaleString()}`;
+
+    const CHART_HEIGHT = 220;
+    const MAX_REVENUE = 100000; // expected upper bound (adjust if needed)
+
+    // Normalize revenue into chart Y position
+    const normalizeRevenue = (value: number) => {
+        const ratio = Math.min(value / MAX_REVENUE, 1);
+        return CHART_HEIGHT - ratio * CHART_HEIGHT;
+    };
+
+    // Generate smooth mock points influenced by monthly revenue
+    const generateRevenuePath = (revenue: number) => {
+        const baseY = normalizeRevenue(revenue);
+
+        const points = [
+            { x: 0, y: baseY + 40 },
+            { x: 100, y: baseY + 20 },
+            { x: 200, y: baseY },
+            { x: 300, y: baseY + 30 },
+            { x: 400, y: baseY + 10 },
+            { x: 500, y: baseY - 10 },
+            { x: 600, y: baseY + 5 },
+            { x: 700, y: baseY - 15 },
+            { x: 800, y: baseY }
+        ];
+
+        const linePath = points
+            .map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x} ${p.y}`)
+            .join(' ');
+
+        const areaPath = `${linePath} L800 260 L0 260 Z`;
+
+        return { linePath, areaPath };
+    };
+
+    const { linePath, areaPath } = generateRevenuePath(monthlyRevenues);
 
     useEffect(() => {
         const fetchDashboardStats = async () => {
@@ -244,13 +281,13 @@ const Dashboard = () => {
 
                                     {/* Area */}
                                     <path
-                                        d="M0 220 L50 210 L100 180 L150 190 L200 140 L250 200 L300 160 L350 170 L400 210 L450 150 L500 160 L550 140 L600 155 L650 165 L700 150 L750 160 L800 145 L800 260 L0 260 Z"
+                                        d={areaPath}
                                         fill="rgba(255, 136, 0, 0.12)"
                                     />
 
                                     {/* Line */}
                                     <path
-                                        d="M0 220 L50 210 L100 180 L150 190 L200 140 L250 200 L300 160 L350 170 L400 210 L450 150 L500 160 L550 140 L600 155 L650 165 L700 150 L750 160 L800 145"
+                                        d={linePath}
                                         fill="none"
                                         stroke="#ff8800"
                                         strokeWidth="2"
@@ -258,7 +295,9 @@ const Dashboard = () => {
 
                                     <circle cx="200" cy="140" r="4" fill="#ff8800" />
                                 </svg>
-                                <div className="chart-tooltip">64,366.77</div>
+                                <div className="chart-tooltip">
+                                    {loading ? '—' : formattedMonthlyRevenue}
+                                </div>
                             </div>
 
                             {/* X-Axis Labels */}
